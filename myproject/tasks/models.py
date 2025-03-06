@@ -12,7 +12,7 @@ class Tasks(MPTTModel):
     parent = TreeForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='subtask')
 
     class MPTTMeta:
-        order_selection_by = ['']  # Упорядочиваем по срокам выполненности
+        order_selection_by = ['due_date']  # Упорядочиваем по срокам выполненности
 
     def __str__(self):
         return self.title
