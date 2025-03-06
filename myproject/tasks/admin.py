@@ -1,3 +1,12 @@
 from django.contrib import admin
+from mptt.admin import MPTTModelAdmin
+from .models import Tasks
 
-# Register your models here.
+
+class TaskAdmin(MPTTModelAdmin):
+    list_display = (
+        'title', 'description', 'is_completed', 'due_date'
+    )
+
+
+admin.site.register(Tasks, TaskAdmin)
