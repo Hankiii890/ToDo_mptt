@@ -4,7 +4,7 @@ from mptt.models import TreeForeignKey, MPTTModel
 
 
 class Tasks(MPTTModel):
-    title = models.CharField(255)
+    title = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)  # Поле может быть пустым при отправке в форму джанго / в БД это поле может быть пустым
     due_date = models.DateTimeField(blank=True, null=True)  # Поле срока выполнения задачи
     is_completed = models.BooleanField(default=False)
@@ -16,3 +16,5 @@ class Tasks(MPTTModel):
 
     def __str__(self):
         return self.title
+
+
