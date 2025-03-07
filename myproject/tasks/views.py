@@ -5,7 +5,7 @@ from .forms import TaskForms
 
 def lst_tasks(request):
     tasks = Tasks.objects.filter(parent=None)   # Главные задачи(без подзадач)
-    return render(request, 'list_task.html', {'task': tasks})
+    return render(request, 'list_task.html', {'tasks': tasks})
 
 
 # Создание новой задачи
@@ -16,7 +16,7 @@ def task_created(request):
             form.save()
             return redirect('list_task')   # После создания переходим на страницу с задачами
     else:
-        form = TaskForms
+        form = TaskForms()
 
     return render(request, 'create_task.html', {'form': form})
 

@@ -12,7 +12,7 @@
     <ui>
         {% for task in tasks %}
             <li>
-                <a href="{% url 'list_edite task_id=task.task.id'%}">{{ task.title}}</a>
+                <a href="{% url 'task_edite' task_id=task.id%}">{{ task.title }}</a>
                 <p>{{ task.description }}</p>
             </li>
         {% empty %}
